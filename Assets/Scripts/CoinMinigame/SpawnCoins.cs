@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class SpawnCoins : MonoBehaviour
 {
-    public int coinsCollected;
     public GameObject coinPrefab;
     private GameObject coinText;
     private UIController ui;
     private Vector3 mousePos;
     private Vector3 objectPos;
+    private int coinsCollected;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,8 @@ public class SpawnCoins : MonoBehaviour
         if (Input.GetMouseButtonDown(0)){
             spawnCoin();
         }
+        AddCoinsDebugger();
+        CoinAmountDebugger();
     }
 
     void spawnCoin(){ // Spawn a coin at the current mouse position
@@ -36,7 +38,21 @@ public class SpawnCoins : MonoBehaviour
     }
 
     void updateCoinCount(){
-        //coinsCollected --;
-        //PlayerPrefs.SetInt("coins",coinsCollected);
+        coinsCollected = PlayerPrefs.GetInt("coins");
+        coinsCollected -= 1;
+        PlayerPrefs.SetInt("coins",coinsCollected);
+    }
+
+    void AddCoinsDebugger(){
+        if(Input.GetKey(KeyCode.Alpha1)){
+            coinsCollected ++;
+            PlayerPrefs.SetInt("coins",coinsCollected);
+        }
+    }
+
+    void CoinAmountDebugger(){
+        if(Input.GetKeyDown(KeyCode.Alpha2)){
+           Debug.Log("Real coin count is: " + PlayerPrefs.GetInt("coins"));
+        }
     }
 }

@@ -455,7 +455,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'coins remaining - '
+  m_Text: Coins Remaining -
 --- !u!222 &783035849
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -900,7 +900,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score_UIText: {fileID: 783035848}
-  coinsRemaining: 15
 --- !u!50 &4126472021407691094
 Rigidbody2D:
   serializedVersion: 4

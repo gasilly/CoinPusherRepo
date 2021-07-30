@@ -5,17 +5,14 @@ using UnityEngine;
 public class CoinBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int coinsCollected;
+    private int coinsCollected;
     private GameObject coinText;
     private UIController ui;
-    void Start()
-    {
-        coinsCollected = PlayerPrefs.GetInt("coins");
-    }
-    
+
     void OnTriggerEnter2D(Collider2D Coll){
-        Destroy(gameObject);
-        coinsCollected ++;
+        coinsCollected = PlayerPrefs.GetInt("coins");
+        coinsCollected += 1;
         PlayerPrefs.SetInt("coins", coinsCollected);
+        Destroy(gameObject);
     }
 }
