@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCar : MonoBehaviour
 {
@@ -22,5 +23,13 @@ public class PlayerCar : MonoBehaviour
     {
         movement = new Vector2(Input.GetAxis("Horizontal"),0);
         rb.MovePosition((Vector2)transform.position + (movement * speed * Time.deltaTime));
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if(coll.gameObject.tag == "EnemyCar")
+        {
+            SceneManager.LoadScene("Car Racer Scene"); 
+        }
     }
 }

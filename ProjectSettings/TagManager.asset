@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UI
   - EnemyCar
+  - PlayerCar
   layers:
   - Default
   - TransparentFX
